@@ -1,15 +1,13 @@
-import 'package:kita_muslim/data/datasources/db/sqlhelper.dart';
-import 'package:kita_muslim/data/models/surah/spesifik_surah_model.dart' as spesifik;
-import 'package:kita_muslim/data/models/surah/surah_model.dart';
+import 'package:frontendpos/data/datasources/db/sqlhelper.dart';   
 import 'package:sqflite/sqflite.dart';
 
 import 'package:path/path.dart';
 
 class SqlDatabases {
-  static final SqlDatabase instance = SqlDatabase._init();
+  static final SqlDatabases instance = SqlDatabases._init();  
   static Database? _database;
   static SqlHelper sqlHelper = SqlHelper();
-  SqlDatabase._init();
+  SqlDatabases._init();
 
   Future<Database?> get database async {
     if (_database != null) return _database;
@@ -56,17 +54,17 @@ class SqlDatabases {
   //   return result;
   // }
 
-  insertInitialSurahHeader(Data data) async {
-    final db = await instance.database;
-    final result = await sqlHelper.insertSurahHeader(db, instance, data);
-    return result;
-  }
+  // insertInitialSurahHeader(Data data) async {
+  //   final db = await instance.database;
+  //   final result = await sqlHelper.insertSurahHeader(db, instance, data);
+  //   return result;
+  // }
 
-  insertInitialSurahDetail(int number, int sequence, int numberOfVerses, spesifik.PreBismillah? prebismillah, spesifik.Verses data) async {
-    final db = await instance.database;
-    final result = await sqlHelper.insertSurahDetail(db, instance, number, sequence, numberOfVerses, prebismillah, data);
-    return result;
-  }
+  // insertInitialSurahDetail(int number, int sequence, int numberOfVerses, spesifik.PreBismillah? prebismillah, spesifik.Verses data) async {
+  //   final db = await instance.database;
+  //   final result = await sqlHelper.insertSurahDetail(db, instance, number, sequence, numberOfVerses, prebismillah, data);
+  //   return result;
+  // }
 
   // //read master category
   // Future<List<CategoryModel>> readCategory(int isDefault) async {
@@ -164,11 +162,11 @@ class SqlDatabases {
 
   // // read passcode - exist
   // Future<bool>
-  Future<String> readNumberOfSurah() async {
-    final db = await instance.database;
-    return await sqlHelper.readNumberOfSurah(db, instance);
-    // return result;
-  }
+  // Future<String> readNumberOfSurah() async {
+  //   final db = await instance.database;
+  //   return await sqlHelper.readNumberOfSurah(db, instance);
+  //   // return result;
+  // }
 
   // // saving new passcode
   // Future<bool> savingNewPasscode(String value) async {

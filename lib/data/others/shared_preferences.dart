@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MySharedPref {
   late SharedPreferences pref;
 
-  clearAllSharedPref() async {
+  void clearAllSharedPref() async {
     pref = await SharedPreferences.getInstance();
     pref.clear();
   }
@@ -65,5 +65,16 @@ class MySharedPref {
     prefsMap2.sort();
 
     return prefsMap2;
+  }
+
+  Future<bool> getOnBoardingStatus() async {
+    pref = await SharedPreferences.getInstance();
+    bool boolValue = pref.getBool('seenOnboarding') ?? true;
+    return boolValue;
+  }
+
+  void setOnboardingStatus(bool status) async {
+    pref = await SharedPreferences.getInstance();
+    pref.setBool('seenOnboarding', status);
   }
 }
