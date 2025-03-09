@@ -1,29 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   bool hasSeenOnboarding = prefs.getBool('seenOnboarding') ?? false;
-
-//   runApp(MyApp(hasSeenOnboarding: hasSeenOnboarding));
-// }
-
-// class MyApp extends StatelessWidget {
-//   final bool hasSeenOnboarding;
-
-//   const MyApp({Key? key, required this.hasSeenOnboarding}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: hasSeenOnboarding ? HomeScreen() : OnboardingScreen(),
-//     );
-//   }
-// }
+import '../../../utils/export.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -34,17 +17,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<Map<String, String>> _onboardingData = [
     {
-      "image": "assets/slide1.png",
+      "image": "assets/images/onboarding_01.jpg",
       "title": "Selamat Datang",
-      "description": "Aplikasi ini akan membantu Anda mengelola pekerjaan dengan lebih efisien.",
+      "description":
+          "Aplikasi ini akan membantu Anda mengelola pekerjaan dengan lebih efisien.",
     },
     {
-      "image": "assets/slide2.png",
+      "image": "assets/images/onboarding_01.jpg",
       "title": "Fitur Canggih",
       "description": "Nikmati fitur canggih yang memudahkan tugas harian Anda.",
     },
     {
-      "image": "assets/slide3.png",
+      "image": "assets/images/onboarding_01.jpg",
       "title": "Mulai Sekarang!",
       "description": "Mari mulai petualangan Anda bersama aplikasi kami!",
     },
@@ -54,16 +38,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('seenOnboarding', true);
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: PageView.builder(
@@ -78,19 +67,34 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(_onboardingData[index]["image"]!, height: 250),
-                    SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(_onboardingData[index]["image"]!),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(12),
+                          bottomRight: Radius.circular(12),
+                        ),
+                      ),
+                      height: MediaQuery.sizeOf(context).height / 1.8,
+                      margin: AppSpacing.bottomSpacing(context),
+                    ),
                     Text(
                       _onboardingData[index]["title"]!,
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: AppTextSizes.extraLarge(context),
+                          fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10),
+                    // SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         _onboardingData[index]["description"]!,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 16),
+                        style:
+                            TextStyle(fontSize: AppTextSizes.medium(context)),
                       ),
                     ),
                   ],
@@ -99,23 +103,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
 
-          // Indikator dots
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               _onboardingData.length,
               (index) => Container(
                 margin: EdgeInsets.symmetric(horizontal: 4),
-                width: _currentIndex == index ? 12 : 8,
-                height: _currentIndex == index ? 12 : 8,
+                width: _currentIndex == index
+                    ? 16
+                    : 8, // Lebar lebih besar untuk oval
+                height: 8, // Tinggi tetap
                 decoration: BoxDecoration(
-                  color: _currentIndex == index ? Colors.blue : Colors.grey,
-                  shape: BoxShape.circle,
+                  color: _currentIndex == index ? context.blue : Colors.grey,
+                  borderRadius:
+                      BorderRadius.circular(8), // Membuat sudut melengkung
                 ),
               ),
             ),
           ),
-          SizedBox(height: 20),
+          // SizedBox(height: 20),
 
           // Tombol navigasi
           Padding(
@@ -125,9 +131,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   onPressed: _finishOnboarding,
-                  child: Text("Lewati", style: TextStyle(fontSize: 16)),
+                  child: Text("Lewati",
+                      style: TextStyle(
+                          color: context.orange,
+                          fontSize: AppTextSizes.medium(context))),
                 ),
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
                     if (_currentIndex == _onboardingData.length - 1) {
                       _finishOnboarding();
@@ -137,23 +146,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.easeInOut);
                     }
                   },
-                  child: Text(_currentIndex == _onboardingData.length - 1 ? "Mulai" : "Lanjut"),
+                  child: Text(
+                    _currentIndex == _onboardingData.length - 1
+                        ? "Mulai"
+                        : "Lanjut",
+                    style: TextStyle(
+                        color: context.blueDeep,
+                        fontSize: AppTextSizes.medium(context)),
+                  ),
                 ),
               ],
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Home")),
-      body: Center(child: Text("Selamat datang di aplikasi!")),
     );
   }
 }

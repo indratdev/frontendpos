@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:frontendpos/data/others/shared_preferences.dart';
 import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
 import 'package:frontendpos/presentation/screens/onboarding_screen/onboarding_screen.dart';
+import 'package:frontendpos/utils/app_colors.dart';
 import 'package:frontendpos/utils/constants.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,14 +23,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _navigateToNextScreen() async {
     await Future.delayed(Duration(seconds: 2)); // Timer diganti Future.delayed
 
-    bool hasSeenOnboarding = await MySharedPref().getOnBoardingStatus();
+    // bool hasSeenOnboarding = await MySharedPref().getOnBoardingStatus();
+    bool hasSeenOnboarding = false;
 
     if (!mounted) return; // Cegah error jika state sudah di-dispose
 
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (context) => hasSeenOnboarding ? LoginScreen() : OnboardingScreen(),
+        builder: (context) =>
+            hasSeenOnboarding ? LoginScreen() : OnboardingScreen(),
       ),
       (route) => false,
     );
@@ -38,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Constants.colorGreenDeep,
+      backgroundColor: context.blueDeep,
       body: Center(
         child: Image.asset(
           Constants.appWallpaper,

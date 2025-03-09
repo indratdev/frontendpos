@@ -6,41 +6,55 @@ void main() {
   runApp(const MyApp());
 }
 
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiBlocProvider(
+//       providers: [
+//         // BlocProvider(
+//         //   create: (context) => SurahBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => AudiomanagementBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => HadistsBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => FavoriteBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => PrayerBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => CalculatorBloc(),
+//         // ),
+//         // BlocProvider(
+//         //   create: (context) => ArticleBloc(),
+//         // ),
+//       ],
+//       child: MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         // initialRoute: '/splash',
+//         initialRoute: Routes.splash,
+//         routes: Routes().getRoutes,
+//       ),
+//     );
+//   }
+// }
+
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        // BlocProvider(
-        //   create: (context) => SurahBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => AudiomanagementBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => HadistsBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => FavoriteBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => PrayerBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => CalculatorBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => ArticleBloc(),
-        // ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        // initialRoute: '/splash',        
-        initialRoute: Routes.splash,
-        routes: Routes().getRoutes,
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      // initialRoute: '/splash',
+      initialRoute: Routes.splash,
+      routes: Routes().getRoutes,
     );
   }
 }

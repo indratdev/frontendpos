@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontendpos/presentation/screens/splash_screen/splash_screen.dart';
 // import 'package:kita_muslim/presentation/screens/article_screen/article_screen.dart';
 // import 'package:kita_muslim/presentation/screens/calculator_screen/calculator_screen.dart';
 // import 'package:kita_muslim/presentation/screens/favorite_screens/favorite_screen.dart';
@@ -43,7 +44,7 @@ class Routes {
     // hadistDetail: (_) => HadistDetailScreen(nameHadist: ""),
     // // hadistDetail: (_) => HadistDetailScreen(),
     // hadistsSR: (_) => HadistSRScreen(),
-    // splash: (_) => const SplashScreen(),
+    splash: (_) => const SplashScreen(),
     // prayerSchedule: (_) => const PrayerScheduleScreen(),
     // qiblahScreen: (_) => QiblahScreen(),
     // calculatorScreen: (_) => CalculatorScreen(),
