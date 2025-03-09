@@ -46,6 +46,8 @@ class Constants {
   static const needleImage = "assets/images/needle.png";
   static const backgroundImage = "assets/images/background.png";
 
+ static const testImage =  "assets/images/onboarding_01.jpg";
+
   // end image
 
   static const urlImageNotFound = "https://demofree.sirv.com/nope-not-here.jpg";
@@ -67,7 +69,7 @@ class Constants {
   static const sizeTextArabian = 30.0;
   static const sizeTextArabianSub = 25.0;
 
-  static BorderRadius cornerRadiusBox = BorderRadius.circular(15.0);
+  static BorderRadius cornerRadiusBox = BorderRadius.circular(16.0);
 
 
   // static BoxShadow boxShadowMenu = BoxShadow(

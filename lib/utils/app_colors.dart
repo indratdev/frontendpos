@@ -8,7 +8,7 @@ extension AppColors on BuildContext {
   Color get iwhite => const Color(0xFFFEFEFE);
   Color get igreen => const Color(0xFF377D71);
 
-  Color get colorBlack => const Color(0xFF100F0F);
+  Color get black => const Color(0xFF100F0F);
   Color get colorGreenDeep => const Color(0xFF0F3D3E);
   Color get colorCream => const Color(0xFFE2DCC8);
   Color get colorWhite => const Color(0xFFF1F1F1);

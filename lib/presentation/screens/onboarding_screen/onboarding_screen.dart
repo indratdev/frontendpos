@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontendpos/presentation/screens/login_screen/login_option_screen.dart';
 import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -42,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       if (context.mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
+          MaterialPageRoute(builder: (context) => LoginOptionScreen()),
         );
       }
     });

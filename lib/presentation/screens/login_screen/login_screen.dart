@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,6 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -37,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
-                
+
                 // Username Field
                 TextFormField(
                   controller: _usernameController,
