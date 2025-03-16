@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontendpos/presentation/screens/login_screen/login_option_screen.dart';
-import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
+import 'package:frontendpos/presentation/screens/auth_screen/login_option_screen.dart';
+import 'package:frontendpos/presentation/screens/auth_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../shared/utils/export.dart';

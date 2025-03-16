@@ -62,7 +62,7 @@ class LoginOptionScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       horizontal: 20, vertical: 12), // Opsional: atur padding
                 ),
-                onPressed: () {},
+                 onPressed: () => Navigator.pushNamed(context, Routes.register),
                 child: Text(
                   "DAFTAR",
                   style: TextStyle(

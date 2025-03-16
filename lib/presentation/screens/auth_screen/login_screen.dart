@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/presentation/widgets/textfield.dart';
 import 'package:frontendpos/presentation/widgets/two_button.dart';
-import 'package:frontendpos/shared/utils/app_spacing.dart';
-import 'package:frontendpos/shared/utils/app_textSizes.dart';
+
 import 'package:frontendpos/shared/utils/export.dart';
 import 'package:frontendpos/shared/utils/validator.dart';
 
@@ -44,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     Container(
-                      height: MediaQuery.sizeOf(context).height / 2.5,
+                      height: MediaQuery.sizeOf(context).height / 2,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
@@ -62,15 +61,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             CustomTextfieldWidget(
                               controller: _emailController,
-                              titleTextfield: "Email",
-                              hintText: "Ketikan email anda",
+                              // titleTextfield: "Email",
+                              hintText: "Email anda",
                               typeTextField: TypeTextField.email,
                               icon: Icons.person,
                             ),
                             CustomTextfieldWidget(
                               controller: _passwordController,
-                              titleTextfield: "Kata Sandi",
-                              hintText: "Ketikan kata sandi anda",
+                              // titleTextfield: "Kata Sandi",
+                              hintText: "Kata sandi anda",
                               typeTextField: TypeTextField.password,
                               icon: Icons.lock,
                               obscureText: _isObscured,
@@ -95,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  "Forgot Password?",
+                                  "Lupa Kata Sandi?",
                                   style: TextStyle(color: context.blueDeep),
                                 ),
                               ),
@@ -115,27 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
 
-            /// Container di bagian bawah
-            Padding(
-              padding: const EdgeInsets.only(bottom: 30),
-              child: Container(
-                alignment: Alignment.center,
-                width: MediaQuery.sizeOf(context).width / 1.5,
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: "Dengan menekan daftar anda menyetujui ",
-                    style: TextStyle(color: context.black),
-                    children: [
-                      TextSpan(
-                        text: "syarat & ketentuan",
-                        style: TextStyle(color: context.blue),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+           
           ],
         ),
       ),

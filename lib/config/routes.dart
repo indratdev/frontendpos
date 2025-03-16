@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontendpos/presentation/screens/login_screen/login_option_screen.dart';
-import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
+import 'package:frontendpos/presentation/screens/auth_screen/login_option_screen.dart';
+import 'package:frontendpos/presentation/screens/auth_screen/login_screen.dart';
+import 'package:frontendpos/presentation/screens/auth_screen/register_screen.dart';
 import 'package:frontendpos/presentation/screens/splash_screen/splash_screen.dart';
 // import 'package:kita_muslim/presentation/screens/article_screen/article_screen.dart';
 // import 'package:kita_muslim/presentation/screens/calculator_screen/calculator_screen.dart';
@@ -23,10 +24,12 @@ class Routes {
   static const String splash = "/splash";
   static const String loginOption = "/loginOption";
   static const String login = "/login";
+  static const String register = "/register";
 
   Map<String, WidgetBuilder> getRoutes = {
     splash: (_) => const SplashScreen(),
     loginOption: (_) => const LoginOptionScreen(),
-     login: (_) =>  LoginScreen(),
+    login: (_) => LoginScreen(),
+    register: (_) => RegisterScreen(),
   };
 }
