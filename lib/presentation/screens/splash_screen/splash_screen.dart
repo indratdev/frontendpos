@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:frontendpos/data/others/shared_preferences.dart';
 import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
 import 'package:frontendpos/presentation/screens/onboarding_screen/onboarding_screen.dart';
-import 'package:frontendpos/utils/app_colors.dart';
-import 'package:frontendpos/utils/constants.dart';
+import 'package:frontendpos/shared/utils/app_colors.dart';
+import 'package:frontendpos/shared/utils/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

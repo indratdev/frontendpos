@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/config/routes.dart';
-import 'package:frontendpos/utils/constants.dart';
-import 'package:frontendpos/utils/export.dart';
+import 'package:frontendpos/shared/utils/constants.dart';
+import 'package:frontendpos/shared/utils/export.dart';
 
 class LoginOptionScreen extends StatelessWidget {
   const LoginOptionScreen({super.key});

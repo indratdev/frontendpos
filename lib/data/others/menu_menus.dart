@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontendpos/utils/constants.dart';
+import 'package:frontendpos/shared/utils/constants.dart';
 
 import 'dart:convert';
 

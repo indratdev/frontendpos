@@ -3,7 +3,7 @@ import 'package:frontendpos/presentation/screens/login_screen/login_option_scree
 import 'package:frontendpos/presentation/screens/login_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../utils/export.dart';
+import '../../../shared/utils/export.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
