@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/presentation/widgets/textfield.dart';
 import 'package:frontendpos/presentation/widgets/two_button.dart';
-import 'package:frontendpos/shared/utils/app_spacing.dart';
-import 'package:frontendpos/shared/utils/app_textSizes.dart';
 import 'package:frontendpos/shared/utils/export.dart';
 import 'package:frontendpos/shared/utils/validator.dart';
 
-import '../../../shared/utils/constants.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontendpos/config/routes.dart';
 import 'package:frontendpos/presentation/widgets/textfield.dart';
 import 'package:frontendpos/presentation/widgets/two_button.dart';
 
@@ -92,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Align(
                               alignment: Alignment.centerRight,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () => Navigator.pushNamed(context, Routes.forgotPassword),
                                 child: Text(
                                   "Lupa Kata Sandi?",
                                   style: TextStyle(color: context.blueDeep),
@@ -113,8 +114,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-
-           
           ],
         ),
       ),

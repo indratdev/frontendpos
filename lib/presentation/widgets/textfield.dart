@@ -81,7 +81,7 @@ class _CustomTextfieldWidgetState extends State<CustomTextfieldWidget> {
                   ? null
                   : Icon(
                       widget.icon,
-                      color: context.violet,
+                      color: context.black,
                     ),
               enabledBorder:  OutlineInputBorder(
                 borderSide: BorderSide(color: context.black),
