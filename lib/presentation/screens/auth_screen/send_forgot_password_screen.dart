@@ -24,19 +24,19 @@ class _SendForgotPasswordScreenState extends State<SendForgotPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, // AppBar transparan
-        elevation: 0, // Hilangkan shadow
-        foregroundColor: Colors.grey,
-        title: Text(
-          "",
-          style: TextStyle(
-              fontSize: AppTextSizes.extraLarge(context),
-              fontWeight: FontWeight.w500,
-              color: context.colorWhite),
-        ),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent, // AppBar transparan
+      //   elevation: 0, // Hilangkan shadow
+      //   foregroundColor: Colors.grey,
+      //   title: Text(
+      //     "",
+      //     style: TextStyle(
+      //         fontSize: AppTextSizes.extraLarge(context),
+      //         fontWeight: FontWeight.w500,
+      //         color: context.colorWhite),
+      //   ),
+      //   centerTitle: true,
+      // ),
       body: SizedBox.expand(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -47,7 +47,7 @@ class _SendForgotPasswordScreenState extends State<SendForgotPasswordScreen> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 12.0),
+                        padding:  EdgeInsets.only(bottom: 12.0, top: MediaQuery.sizeOf(context).height/10),
                         child: Text("Email berhasil dikirim",
                             style: TextStyle(
                               fontSize: AppTextSizes.large(context),

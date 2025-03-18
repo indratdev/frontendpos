@@ -4,6 +4,8 @@ import 'package:frontendpos/presentation/screens/auth_screen/login_option_screen
 import 'package:frontendpos/presentation/screens/auth_screen/login_screen.dart';
 import 'package:frontendpos/presentation/screens/auth_screen/register_screen.dart';
 import 'package:frontendpos/presentation/screens/auth_screen/send_forgot_password_screen.dart';
+import 'package:frontendpos/presentation/screens/home_screen/home_screen.dart';
+import 'package:frontendpos/presentation/screens/home_screen/menu_screen.dart';
 import 'package:frontendpos/presentation/screens/splash_screen/splash_screen.dart';
 // import 'package:kita_muslim/presentation/screens/article_screen/article_screen.dart';
 // import 'package:kita_muslim/presentation/screens/calculator_screen/calculator_screen.dart';
@@ -29,6 +31,8 @@ class Routes {
   static const String register = "/register";
   static const String forgotPassword = "/forgot-password";
   static const String sendForgotPassword = "/send-forgot-password";
+  static const String home = "/home";
+  static const String menus = "/menus";
 
   Map<String, WidgetBuilder> getRoutes = {
     splash: (_) => const SplashScreen(),
@@ -37,5 +41,7 @@ class Routes {
     register: (_) => RegisterScreen(),
     forgotPassword: (_) => ForgotPasswordScreen(),
     sendForgotPassword: (_) => SendForgotPasswordScreen(),
+    home: (_) => HomeScreen(),
+    menus: (_) => MenuScreen(),
   };
 }

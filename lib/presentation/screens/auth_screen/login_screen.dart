@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             TwoButton(
                               isVisibleSecondButton: false,
                               mainTitleButton: "Masuk",
-                              mainButtonvoidCallback: () {},
+                              mainButtonvoidCallback: () => Navigator.pushNamed(context, Routes.home),
                             ),
                           ],
                         ),
