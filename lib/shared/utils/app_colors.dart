@@ -22,4 +22,5 @@ extension AppColors on BuildContext {
   Color get orange => const Color(0xFFFF7F3E);
   Color get blueDeep => const Color(0xFF131842);
   Color get red => const Color(0xFFFA4032);
+  Color get white => const Color(0xFFFEFEFE);
 }

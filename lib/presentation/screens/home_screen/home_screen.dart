@@ -15,14 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Persistent Bottom Navigation Bar Demo',
       home: PersistentTabView(
-        // backgroundColor: Colors.red,
-        // hideNavigationBar: true,
         tabs: [
           PersistentTabConfig(
             screen: MenuScreen(),
             item: ItemConfig(
+              activeForegroundColor: context.cream,
               icon: Icon(Icons.home),
               title: "Beranda",
             ),
@@ -30,13 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
           PersistentTabConfig(
             screen: SplashScreen(),
             item: ItemConfig(
-              // activeForegroundColor: AppColors.blue,
-              // activeColorSecondary: Colors.green,
-              // iconSize: 30,
-
+              activeForegroundColor: context.orange, // Warna teks saat aktif
+              inactiveForegroundColor:
+                  Colors.grey, // Warna teks saat tidak aktif
+              // activeBackgroundColor: context.orange, // Warna tombol tetap orange
               icon: Icon(
                 Icons.qr_code_scanner,
-                color: Colors.white,
+                color: Colors.white, // Warna ikon tetap putih
                 size: MediaQuery.sizeOf(context).width / 12,
               ),
               title: "Pindai",
@@ -45,14 +45,17 @@ class _HomeScreenState extends State<HomeScreen> {
           PersistentTabConfig(
             screen: SplashScreen(),
             item: ItemConfig(
+              activeForegroundColor: context.cream,
               icon: Icon(Icons.settings),
               title: "Settings",
             ),
           ),
         ],
 
-        navBarBuilder: (navBarConfig) =>
-            Style14BottomNavBar(navBarConfig: navBarConfig),
+        navBarBuilder: (navBarConfig) => Style14BottomNavBar(
+          navBarConfig: navBarConfig,
+          navBarDecoration: NavBarDecoration(color: context.blueDeep),
+        ),
         // navBarBuilder: (navBarConfig) => Style1BottomNavBar(
         //   navBarConfig: navBarConfig,
         // ),

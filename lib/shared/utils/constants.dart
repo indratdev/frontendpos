@@ -69,8 +69,16 @@ class Constants {
   static const sizeTextArabian = 30.0;
   static const sizeTextArabianSub = 25.0;
 
-  static BorderRadius cornerRadiusBox = BorderRadius.circular(16.0);
+  static BorderRadius cornerRadiusBox = BorderRadius.circular(4.0);
 
+ EdgeInsets getEdgeInsertList(BuildContext context) {
+  return EdgeInsets.fromLTRB(
+    MediaQuery.sizeOf(context).width / 15,
+    MediaQuery.sizeOf(context).width / 35,
+    MediaQuery.sizeOf(context).width / 15,
+    0,
+  );
+}
 
   // static BoxShadow boxShadowMenu = BoxShadow(
   //   color: Constants.color1.withOpacity(0.5),
@@ -92,26 +100,11 @@ class Constants {
   //   blurRadius: 3,
   //   // offset: const Offset(0, 1), // changes position of shadow
   // );
+
+
+  /// new
+  static const transactionIcon = "assets/icons/transaction.png";
 }
 
 
-
-// icon : <a href="https://www.flaticon.com/free-icons/quran" title="Quran icons">Quran icons created by BZZRINCANTATION - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by kerismaker - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/favorite" title="favorite icons">Favorite icons created by Freepik - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/quran" title="Quran icons">Quran icons created by zafdesign - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/dua" title="dua icons">Dua icons created by Siipkan Creative - Flaticon</a>
-
-
-// icon new
-// <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by Freepik - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/muslim" title="muslim icons">Muslim icons created by amonrat rungreangfangsai - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by nawicon - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/ramadan" title="ramadan icons">Ramadan icons created by Freepik - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/quran" title="Quran icons">Quran icons created by Freepik - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/quran" title="Quran icons">Quran icons created by Deylotus Creative Design - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">Pray icons created by Marz Gallery - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/select-all" title="select all icons">Select all icons created by bsd - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/qibla" title="qibla icons">Qibla icons created by Aranagraphics - Flaticon</a>
-// <a href="https://www.flaticon.com/free-icons/calculator" title="calculator icons">Calculator icons created by Freepik - Flaticon</a>
-// https://unsplash.com/photos/white-wall-paint-with-black-shadow-zGZYQQVmXw0?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
+// <a href="https://www.flaticon.com/free-icons/transaction" title="transaction icons">Transaction icons created by surang - Flaticon</a>
