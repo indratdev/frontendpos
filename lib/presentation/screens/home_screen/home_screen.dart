@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/presentation/screens/home_screen/menu_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/settings_screen.dart';
 import 'package:frontendpos/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:frontendpos/shared/utils/app_colors.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           PersistentTabConfig(
-            screen: SplashScreen(),
+            screen: SettingsScreen(),
             item: ItemConfig(
               activeForegroundColor: context.cream,
               icon: Icon(Icons.settings),
