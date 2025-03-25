@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/config/routes.dart';
-import 'package:frontendpos/shared/utils/app_colors.dart';
 import 'package:frontendpos/shared/utils/app_textSizes.dart';
 import 'package:frontendpos/shared/utils/constants.dart';
 
