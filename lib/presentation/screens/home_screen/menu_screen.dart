@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/config/routes.dart';
+import 'package:frontendpos/presentation/screens/dashboard_screen/dashboard_screen.dart';
+import 'package:frontendpos/presentation/screens/master_screen/master_screen.dart';
 import 'package:frontendpos/shared/utils/app_textSizes.dart';
 import 'package:frontendpos/shared/utils/constants.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
 class MenuScreen extends StatelessWidget {
   MenuScreen({super.key});
@@ -10,32 +13,37 @@ class MenuScreen extends StatelessWidget {
     MenuItemWidget(
       title: "Transaksi",
       imageName: Constants.transactionIcon,
-      routeName: "",
+      screenName: DashboardScreen(),
+    ),
+    MenuItemWidget(
+      title: "Dashboard",
+      imageName: Constants.transactionIcon,
+      screenName: DashboardScreen(),
     ),
     MenuItemWidget(
       title: "Laporan",
       imageName: Constants.transactionIcon,
-      routeName: "",
+      screenName: DashboardScreen(),
     ),
     MenuItemWidget(
       title: "Master",
       imageName: Constants.transactionIcon,
-      routeName: Routes.master,
+      screenName: MasterScreen(),
     ),
     MenuItemWidget(
       title: "Pelanggan",
       imageName: Constants.transactionIcon,
-      routeName: "",
+      screenName: DashboardScreen(),
     ),
     MenuItemWidget(
       title: "Pengaturan",
       imageName: Constants.transactionIcon,
-      routeName: "",
+      screenName: DashboardScreen(),
     ),
     MenuItemWidget(
       title: "Manajemen Pengguna",
       imageName: Constants.transactionIcon,
-      routeName: "",
+      screenName: DashboardScreen(),
     ),
   ];
 
@@ -74,19 +82,22 @@ class MenuScreen extends StatelessWidget {
 class MenuItemWidget extends StatelessWidget {
   final String title;
   final String imageName;
-  final String routeName;
+  final Widget screenName;
 
   const MenuItemWidget({
     super.key,
     required this.title,
     required this.imageName,
-    required this.routeName,
+    required this.screenName,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, routeName),
+      // onTap: () => Navigator.pushNamed(context, routeName),
+      onTap: () {
+        pushScreenWithoutNavBar(context, screenName);
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

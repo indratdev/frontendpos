@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontendpos/config/routes.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -9,7 +10,7 @@ class SettingsScreen extends StatelessWidget {
       MenuListTileWidget(
         iconName: Icons.person_outline_sharp,
         title: "Akun",
-        routes: "",
+        routes: Routes.account,
       ),
       MenuListTileWidget(
         iconName: Icons.notifications_none,
@@ -42,6 +43,7 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Pengaturan"),
         centerTitle: true,
+        toolbarHeight: 100.0, // Atur tinggi AppBar
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(18, 12, 12, 12),
