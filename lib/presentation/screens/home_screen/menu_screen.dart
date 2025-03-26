@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontendpos/config/routes.dart';
 import 'package:frontendpos/presentation/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:frontendpos/presentation/screens/master_screen/master_screen.dart';
+import 'package:frontendpos/presentation/screens/report_screen/report_screen.dart';
 import 'package:frontendpos/shared/utils/app_textSizes.dart';
 import 'package:frontendpos/shared/utils/constants.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
@@ -23,7 +24,7 @@ class MenuScreen extends StatelessWidget {
     MenuItemWidget(
       title: "Laporan",
       imageName: Constants.transactionIcon,
-      screenName: DashboardScreen(),
+      screenName: ReportScreen(),
     ),
     MenuItemWidget(
       title: "Master",

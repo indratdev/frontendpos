@@ -46,7 +46,7 @@ class Constants {
   static const needleImage = "assets/images/needle.png";
   static const backgroundImage = "assets/images/background.png";
 
- static const testImage =  "assets/images/onboarding_01.jpg";
+  static const testImage = "assets/images/onboarding_01.jpg";
 
   // end image
 
@@ -71,14 +71,24 @@ class Constants {
 
   static BorderRadius cornerRadiusBox = BorderRadius.circular(4.0);
 
- EdgeInsets getEdgeInsertList(BuildContext context) {
-  return EdgeInsets.fromLTRB(
-    MediaQuery.sizeOf(context).width / 15,
-    MediaQuery.sizeOf(context).width / 35,
-    MediaQuery.sizeOf(context).width / 15,
-    0,
-  );
-}
+  // icon size
+  static double iconSizeExtraSmall(BuildContext context) =>
+      MediaQuery.of(context).size.width * 0.06;
+
+  static double iconSizeSmall(BuildContext context) =>
+      MediaQuery.of(context).size.width * 0.08;
+
+  static double iconTrailing(BuildContext context) =>
+      MediaQuery.of(context).size.width * 0.06 / 2;
+
+  EdgeInsets getEdgeInsertList(BuildContext context) {
+    return EdgeInsets.fromLTRB(
+      MediaQuery.sizeOf(context).width / 15,
+      MediaQuery.sizeOf(context).width / 35,
+      MediaQuery.sizeOf(context).width / 15,
+      0,
+    );
+  }
 
   // static BoxShadow boxShadowMenu = BoxShadow(
   //   color: Constants.color1.withOpacity(0.5),
@@ -100,7 +110,6 @@ class Constants {
   //   blurRadius: 3,
   //   // offset: const Offset(0, 1), // changes position of shadow
   // );
-
 
   /// new
   static const transactionIcon = "assets/icons/transaction.png";
