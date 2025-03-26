@@ -4,9 +4,11 @@ import 'package:frontendpos/presentation/screens/auth_screen/login_option_screen
 import 'package:frontendpos/presentation/screens/auth_screen/login_screen.dart';
 import 'package:frontendpos/presentation/screens/auth_screen/register_screen.dart';
 import 'package:frontendpos/presentation/screens/auth_screen/send_forgot_password_screen.dart';
+import 'package:frontendpos/presentation/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:frontendpos/presentation/screens/home_screen/home_screen.dart';
 import 'package:frontendpos/presentation/screens/home_screen/menu_screen.dart';
 import 'package:frontendpos/presentation/screens/master_screen/master_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/account_screen/account_screen.dart';
 import 'package:frontendpos/presentation/screens/settings_screen/settings_screen.dart';
 import 'package:frontendpos/presentation/screens/splash_screen/splash_screen.dart';
 // import 'package:kita_muslim/presentation/screens/article_screen/article_screen.dart';
@@ -33,10 +35,12 @@ class Routes {
   static const String register = "/register";
   static const String forgotPassword = "/forgot-password";
   static const String sendForgotPassword = "/send-forgot-password";
-  static const String home = "/home";
+  static const String home = "/home";  
   static const String menus = "/menus";
   static const String master = "/home/master";
+  static const String dashboard = "/home/dashboard";
   static const String settings = "/settings";
+  static const String account = "/settings/account";
 
   Map<String, WidgetBuilder> getRoutes = {
     splash: (_) => const SplashScreen(),
@@ -49,5 +53,7 @@ class Routes {
     menus: (_) => MenuScreen(),
     master: (_) => MasterScreen(),
     settings: (_) => SettingsScreen(),
+    account: (_) => AccountScreen(),
+    dashboard: (_) => DashboardScreen(),
   };
 }
