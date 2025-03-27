@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 0, // Hilangkan shadow
         foregroundColor: context.colorWhite,
         title: Text(
-          "Masuk",
+          "MASUK",
           style: TextStyle(
               fontSize: AppTextSizes.extraLarge(context),
               fontWeight: FontWeight.w500,
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     Container(
-                      height: MediaQuery.sizeOf(context).height / 2,
+                      height: MediaQuery.sizeOf(context).height / 1.6,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(height: 15),
                             TwoButton(
                               isVisibleSecondButton: false,
-                              mainTitleButton: "Masuk",
+                              mainTitleButton: "MASUK",
                               mainButtonvoidCallback: () => Navigator.pushNamed(context, Routes.home),
                             ),
                           ],

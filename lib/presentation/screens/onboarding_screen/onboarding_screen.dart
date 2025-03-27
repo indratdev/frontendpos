@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/presentation/screens/auth_screen/login_option_screen.dart';
-import 'package:frontendpos/presentation/screens/auth_screen/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../shared/utils/export.dart';
@@ -52,8 +51,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: PageView.builder(
@@ -66,29 +69,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               itemBuilder: (context, index) {
                 return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(_onboardingData[index]["image"]!),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
+                      ),
+                      child: Container(
+                        height: MediaQuery.sizeOf(context).height /
+                            1.4, // Ubah ukuran gambar
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(_onboardingData[index]["image"]!),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                      height: MediaQuery.sizeOf(context).height / 1.8,
-                      margin: AppSpacing.bottomSpacing(context),
                     ),
+                    SizedBox(height: 20),
                     Text(
                       _onboardingData[index]["title"]!,
                       style: TextStyle(
-                          fontSize: AppTextSizes.extraLarge(context),
-                          fontWeight: FontWeight.bold),
+                        fontSize: AppTextSizes.extraLarge(context),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    // SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
@@ -98,33 +104,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             TextStyle(fontSize: AppTextSizes.medium(context)),
                       ),
                     ),
+                    SizedBox(height: 20),
                   ],
                 );
               },
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               _onboardingData.length,
               (index) => Container(
                 margin: EdgeInsets.symmetric(horizontal: 4),
-                width: _currentIndex == index
-                    ? 16
-                    : 8, // Lebar lebih besar untuk oval
-                height: 8, // Tinggi tetap
+                width: _currentIndex == index ? 16 : 8,
+                height: 8,
                 decoration: BoxDecoration(
                   color: _currentIndex == index ? context.blue : Colors.grey,
-                  borderRadius:
-                      BorderRadius.circular(8), // Membuat sudut melengkung
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
           ),
-          // SizedBox(height: 20),
-
-          // Tombol navigasi
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -132,10 +132,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   onPressed: _finishOnboarding,
-                  child: Text("Lewati",
-                      style: TextStyle(
-                          color: context.orange,
-                          fontSize: AppTextSizes.medium(context))),
+                  child: Text(
+                    "Lewati",
+                    style: TextStyle(
+                      color: context.orange,
+                      fontSize: AppTextSizes.medium(context),
+                    ),
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -143,8 +146,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       _finishOnboarding();
                     } else {
                       _controller.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut);
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
                     }
                   },
                   child: Text(
@@ -152,8 +156,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ? "Mulai"
                         : "Lanjut",
                     style: TextStyle(
-                        color: context.blueDeep,
-                        fontSize: AppTextSizes.medium(context)),
+                      color: context.blueDeep,
+                      fontSize: AppTextSizes.medium(context),
+                    ),
                   ),
                 ),
               ],

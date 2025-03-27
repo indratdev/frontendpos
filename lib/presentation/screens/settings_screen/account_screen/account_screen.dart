@@ -1,68 +1,99 @@
 import 'package:flutter/material.dart';
-import 'package:frontendpos/shared/utils/constants.dart';
+import 'package:frontendpos/presentation/widgets/textfield.dart';
+import 'package:frontendpos/shared/utils/export.dart';
 
-class AccountScreen extends StatelessWidget {
+class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
+
+  @override
+  _AccountScreenState createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  final TextEditingController _nameController =
+      TextEditingController(text: "Nama Pengguna");
+  final TextEditingController _emailController =
+      TextEditingController(text: "user@example.com");
+  final TextEditingController _phoneController =
+      TextEditingController(text: "+628123456789");
+  final TextEditingController _passwordController =
+      TextEditingController(text: "********");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Akun"),
+        title: Text("Profil"),
         centerTitle: true,
-        leading: BackButton(), // Tombol back default di AppBar
-        backgroundColor: Colors.transparent, // Biar tidak terlihat
-        elevation: 0, // Hilangkan bayangan
-        automaticallyImplyLeading: false,
+        backgroundColor: context.blue,
       ),
-      body: Column(
-        children: [
-          Container(
-            color: Colors.amber,
-            height: MediaQuery.sizeOf(context).height / 2.5,
-            width: MediaQuery.sizeOf(context).width,
-            child: Stack(
-              children: [
-                Positioned(
-                  child: Image.asset(
-                    Constants.testImage,
-                    height: MediaQuery.sizeOf(context).height / 3.2,
-                    width: MediaQuery.sizeOf(context).width,
-                    fit: BoxFit.cover,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage:
+                        AssetImage("assets/images/profile_placeholder.png"),
                   ),
-                ),
-                Positioned(
-                  bottom: 15,
-                  left: 60,
-                  child: Container(
-                    color: Colors.blue,
-                    height: MediaQuery.sizeOf(context).height / 6,
-                    width: MediaQuery.sizeOf(context).height / 6,
+                  SizedBox(height: 10),
+                  Text(
+                    "Edit Profil",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                ),
-                Positioned(
-                  bottom: 15,
-                  right: 60,
-                  child: Container(
-                    color: Colors.red,
-                    height: MediaQuery.sizeOf(context).height / 6,
-                    width: MediaQuery.sizeOf(context).height / 6,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Expanded(
-              child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return Text("data");
-              },
+            SizedBox(height: 20),
+
+            CustomTextfieldWidget(
+              controller: _nameController,
+              hintText: "Nama",
+              titleTextfield: "Nama",
+            ),    
+            SizedBox(height: 10),
+
+             CustomTextfieldWidget(
+              controller: _emailController,
+              hintText: "Email",
+              titleTextfield: "Email",
+            ),                
+            SizedBox(height: 10),
+
+             CustomTextfieldWidget(
+              controller: _phoneController,
+              hintText: "Nomor Telepon",
+              titleTextfield: "Nomor Telepon",
+            ),               
+            SizedBox(height: 10),
+
+             CustomTextfieldWidget(
+              controller: _passwordController,
+              hintText: "Kata Sandi",
+              titleTextfield: "Kata Sandi",
+              obscureText: true,
+
+            ),               
+            SizedBox(height: 20),
+
+            // Tombol Simpan
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  // Tambahkan logika simpan perubahan di sini
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Perubahan disimpan!")),
+                  );
+                },
+                child: Text("Simpan Perubahan"),
+              ),
             ),
-          ))
-        ],
+          ],
+        ),
       ),
     );
   }

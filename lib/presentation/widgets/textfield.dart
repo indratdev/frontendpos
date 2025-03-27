@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/shared/utils/app_colors.dart';
+import 'package:frontendpos/shared/utils/app_textSizes.dart';
 import 'package:frontendpos/shared/utils/formaters.dart';
 import 'package:frontendpos/shared/utils/validator.dart';
 
@@ -94,7 +95,7 @@ class _CustomTextfieldWidgetState extends State<CustomTextfieldWidget> {
               contentPadding: const EdgeInsets.all(10),
               hintText: widget.hintText,
               hintStyle:  TextStyle(
-                fontSize: 14,
+                fontSize: AppTextSizes.medium(context),
                 color: context.black,
               ),
             ),

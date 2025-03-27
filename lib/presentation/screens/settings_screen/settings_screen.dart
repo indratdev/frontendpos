@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:frontendpos/config/routes.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/about_screen/about_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/account_screen/account_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/help_support_screen/helpsupport_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/notification_screen/notification_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/privacy_security_screen/privacy_security_screen.dart';
+import 'package:frontendpos/presentation/screens/settings_screen/theme_screen/theme_screen.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -10,32 +17,32 @@ class SettingsScreen extends StatelessWidget {
       MenuListTileWidget(
         iconName: Icons.person_outline_sharp,
         title: "Akun",
-        routes: Routes.account,
+        routes: AccountScreen(),
       ),
       MenuListTileWidget(
         iconName: Icons.notifications_none,
         title: "Notifikasi",
-        routes: "",
+        routes: NotificationScreen(),
       ),
       MenuListTileWidget(
         iconName: Icons.remove_red_eye_outlined,
         title: "Tema",
-        routes: "",
+        routes: ThemeScreen(),
       ),
        MenuListTileWidget(
         iconName: Icons.lock_outline_rounded,
         title: "Privasi & Keamanan",
-        routes: "",
+        routes: PrivacySecurityScreen(),
       ),
         MenuListTileWidget(
         iconName: Icons.supervised_user_circle_outlined,
         title: "Bantuan dan Layanan",
-        routes: "",
+        routes: HelpAndSupportScreen(),
       ),
         MenuListTileWidget(
         iconName: Icons.help_outline_rounded,
         title: "Tentang",
-        routes: "",
+        routes: AboutScreen(),
       ),
     ];
 
@@ -70,7 +77,7 @@ class SettingsScreen extends StatelessWidget {
 class MenuListTileWidget extends StatelessWidget {
   final IconData iconName;
   final String title;
-  final String routes;
+  final Widget routes;
 
   const MenuListTileWidget({
     super.key,
@@ -82,7 +89,10 @@ class MenuListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => Navigator.pushNamed(context, routes),
+      // onTap: () => Navigator.pushNamed(context, routes),
+       onTap: () {
+        pushScreenWithoutNavBar(context, routes);
+      },
       leading: Icon(iconName),
       title: Text(title),
       trailing: Icon(Icons.arrow_forward_ios_outlined),

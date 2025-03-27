@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontendpos/config/routes.dart';
 import 'package:frontendpos/presentation/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:frontendpos/presentation/screens/master_screen/master_screen.dart';
 import 'package:frontendpos/presentation/screens/report_screen/report_screen.dart';
