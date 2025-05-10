@@ -1,0 +1,2 @@
+D:/IS/development/live/frontendpos/android/app/.cxx/Debug/1d2x5r2m/x86/CMakeFiles/edit_cache.dir
+D:/IS/development/live/frontendpos/android/app/.cxx/Debug/1d2x5r2m/x86/CMakeFiles/rebuild_cache.dir
